@@ -3,25 +3,32 @@ import Link from 'next/link'
 import React from 'react'
 import MobileNav from './MobileNav'
 
+import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
+
 const Navbar = () => {
   return (
-    <nav className='flex between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10'>
+    <nav className='flex flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10'>
       <Link
-      href='/' className='flex items-center gap-1'>
+        href='/' className='flex items-center gap-1'>
         <Image src='/icons/logo.svg'
-        width={32}
-        height={32}
-        alt='Logo'
-        className='max-sm:size-10'
+          width={32}
+          height={32}
+          alt='Logo'
+          className='max-sm:size-10'
         />
-        <p className='text-[26] font-extrabold text-white max-sm:hidden'> Callr</p>
+        <p className='text-[26px] font-extrabold text-white max-sm:hidden'> Callr</p>
       </Link>
 
-      <div className='flex between gap-5'>
+      <div className='flex-between gap-5'>
 
         {/* Implement AuthO User Management { Options: Firebase || OAuth} */}
 
-        <MobileNav/>
+
+        <LoginLink postLoginRedirectURL='/'>Sign in</LoginLink>
+        <RegisterLink>Sign up</RegisterLink>
+        <LogoutLink>Log Out</LogoutLink>
+
+        <MobileNav />
       </div>
     </nav>
   )
