@@ -7,7 +7,7 @@ import { RegisterLink, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextj
 
 const Navbar = () => {
   return (
-    <nav className='flex flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10'>
+    <nav className='flex-between fixed z-50 w-full bg-dark-1 px-6 py-4 lg:px-10'>
       <Link
         href='/' className='flex items-center gap-1'>
         <Image src='/icons/logo.svg'
@@ -21,12 +21,11 @@ const Navbar = () => {
 
       <div className='flex-between gap-5'>
 
-        {/* Implement AuthO User Management { Options: Firebase || OAuth} */}
 
 
         <LoginLink postLoginRedirectURL='/'>Sign in</LoginLink>
         <RegisterLink>Sign up</RegisterLink>
-        <LogoutLink>Log Out</LogoutLink>
+        <LogoutLink postLogoutRedirectURL='/api/auth/login'>Log Out</LogoutLink>
 
         <MobileNav />
       </div>

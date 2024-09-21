@@ -4,8 +4,8 @@ import { LoginLink } from "@kinde-oss/kinde-auth-nextjs/components";
 const SignInPage = () => {
     return (
 
-        <main>
-            <LoginLink postLoginRedirectURL="/sign-in">Sign in</LoginLink>
+        <main className='flex h-screen w-full items-center justify-center'>
+            <p> Welcome to Callr, please Sign In</p>
         </main>
 
     )
