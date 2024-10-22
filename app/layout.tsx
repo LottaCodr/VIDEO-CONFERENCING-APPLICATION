@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Callr",
-  description: "This is a video and voice caller",
+  description: "This is a video and voice caller webapp",
 };
 
 export default function RootLayout({

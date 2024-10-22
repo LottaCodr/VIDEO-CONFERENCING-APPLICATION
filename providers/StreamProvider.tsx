@@ -1,22 +1,13 @@
+"use client"
 
-
+import { tokenProvider } from '@/actions/stream.actions';
+import Loader from '@/components/Loader';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
-import {
-    StreamCall,
-    StreamVideo,
-    StreamVideoClient,
-    User,
-} from '@stream-io/video-react-sdk';
+import { StreamVideo, StreamVideoClient } from '@stream-io/video-react-sdk';
 import { ReactNode, useEffect, useState } from 'react';
 
 const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY;
-//   const userId = 'user-id';
-//   const token = 'authentication-token';
-//   const user: User = { id: userId };
 
-//   const client = new StreamVideoClient({ apiKey, user, token });
-//   const call = client.call('default', 'my-first-call');
-//   call.join({ create: true });
 
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
     const [videoClient, setVideoClient] = useState<StreamVideoClient>();
@@ -36,11 +27,23 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
                 image: user?.picture!
             },
 
-        });
+            tokenProvider
+
+        })
+
+        setVideoClient(client);
     }, [user, isLoading]);
+
+    if(!videoClient) 
+    
+    return <Loader/>
+
+
+
 
     return (
         <StreamVideo client={videoClient}>
+            {children}
 
         </StreamVideo>
     );

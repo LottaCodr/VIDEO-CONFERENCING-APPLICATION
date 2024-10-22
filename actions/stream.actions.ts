@@ -21,7 +21,7 @@ const issued = Math.floor(Date.now() / 1000) - 60;
 const expiration = Math.round(new Date().getTime() / 1000) + 60 * 60;
 
 const token = client.generateUserToken({user_id: user.id, expiration, issued});
-
+ 
 return token;
 
 }
